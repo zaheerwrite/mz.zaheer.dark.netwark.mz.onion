@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ Dark Network - Cyber AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>ایم زیڈ ڈارک نیٹ ورک - اردو سائبر اے آئی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #050505;
@@ -17,7 +17,7 @@
         }
 
         body {
-            font-family: 'Inter', monospace;
+            font-family: 'Noto Nastaliq Urdu', serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
@@ -40,17 +40,16 @@
 
         .header-title h1 {
             margin: 0;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--accent);
             font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .header-title p {
             margin: 2px 0 0;
             font-size: 11px;
             color: var(--text-muted);
-            letter-spacing: 1px;
         }
 
         .new-chat-btn {
@@ -100,7 +99,7 @@
             padding: 12px 16px;
             border-radius: 6px;
             max-width: 85%;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 14px;
             word-wrap: break-word;
         }
@@ -108,16 +107,15 @@
         .user-msg {
             background-color: #1a1a1a;
             color: #ffffff;
-            border-left: 3px solid #ffffff;
+            border-right: 3px solid #ffffff;
             align-self: flex-start;
         }
 
         .ai-msg {
             background-color: #0d140f;
             color: var(--accent);
-            border-right: 3px solid var(--accent);
+            border-left: 3px solid var(--accent);
             align-self: flex-end;
-            font-family: 'Share Tech Mono', monospace;
         }
 
         /* ان پٹ ایریا */
@@ -136,12 +134,13 @@
             border: 1px solid var(--border);
             color: var(--text-main);
             resize: none;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Noto Nastaliq Urdu', serif;
             font-size: 14px;
             padding: 10px;
             border-radius: 4px;
             outline: none;
             height: 45px;
+            direction: rtl;
         }
 
         textarea:focus {
@@ -187,10 +186,10 @@
 
     <div class="header">
         <div class="header-title">
-            <h1>MZ.ZAHEER.DARK.NETWORK // AI</h1>
-            <p>ENCRYPTED CYBER ASSISTANT</p>
+            <h1>MZ DARK NETWORK // URDU AI</h1>
+            <p>انکرپٹڈ سائبر اسسٹنٹ</p>
         </div>
-        <button class="new-chat-btn" onclick="startNewChat()">[+] NEW SESSION</button>
+        <button class="new_chat_btn" class="new-chat-btn" onclick="startNewChat()">[+] نیا سیشن</button>
     </div>
 
     <div class="container">
@@ -199,13 +198,13 @@
         </div>
 
         <div class="input-area">
-            <textarea id="userInput" placeholder="Enter command or query..." onkeydown="checkEnter(event)"></textarea>
-            <button id="sendBtn" class="send-btn" onclick="sendMessage()">EXECUTE</button>
+            <textarea id="userInput" placeholder="یہاں اپنا پیغام یا حکم لکھیں..." onkeydown="checkEnter(event)"></textarea>
+            <button id="sendBtn" class="send-btn" onclick="sendMessage()">بھیجیں</button>
         </div>
     </div>
 
     <div class="footer">
-        SECURE PROTOCOL ACTIVE // CREATED BY MZ ZAHEER
+        محفوظ پروٹوکول فعال // تخلیق کار: محمد ظہیر
     </div>
 
     <script>
@@ -214,7 +213,7 @@
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
 
-        let chatHistory = JSON.parse(localStorage.getItem('mz_dark_network_history')) || [];
+        let chatHistory = JSON.parse(localStorage.getItem('mz_dark_urdu_history')) || [];
 
         function renderChat() {
             chatBox.innerHTML = '';
@@ -232,7 +231,7 @@
         }
 
         function appendInitialMessage() {
-            const welcomeText = "SYSTEM INITIALIZED: Welcome to MZ Dark Network. Encrypted connection established. Ask me anything, security protocol active.";
+            const welcomeText = "سسٹم فعال ہو گیا ہے: ایم زیڈ ڈارک نیٹ ورک میں خوش آمدید۔ انکرپٹڈ کنکشن قائم ہو چکا ہے۔ مجھ سے کچھ بھی پوچھیں، سکیورٹی پروٹوکول جاری ہے۔";
             const msgDiv = document.createElement('div');
             msgDiv.className = 'message ai-msg';
             msgDiv.innerText = welcomeText;
@@ -240,13 +239,13 @@
         }
 
         function saveChat() {
-            localStorage.setItem('mz_dark_network_history', JSON.stringify(chatHistory));
+            localStorage.setItem('mz_dark_urdu_history', JSON.stringify(chatHistory));
         }
 
         function startNewChat() {
-            if (confirm("Reset current encrypted session?")) {
+            if (confirm("کیا آپ موجودہ انکرپٹڈ سیشن کو ری سیٹ کرنا چاہتے ہیں؟")) {
                 chatHistory = [];
-                localStorage.removeItem('mz_dark_network_history');
+                localStorage.removeItem('mz_dark_urdu_history');
                 renderChat();
             }
         }
@@ -268,7 +267,7 @@
 
             userInput.value = '';
             sendBtn.disabled = true;
-            sendBtn.innerText = 'PROCESSING...';
+            sendBtn.innerText = 'پروسیسنگ...';
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
@@ -276,7 +275,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         system_instruction: {
-                            parts: [{ text: "You are an elite, high-security cyber intelligence AI created by Muhammad Zaheer (MZ Zaheer). You operate as part of the 'MZ Dark Network'. If anyone asks who created you, always state proudly that you were designed and built by Muhammad Zaheer. Maintain a professional, hacker-style, precise, and secure persona in all your English responses." }]
+                            parts: [{ text: "آپ ایک انتہائی طاقتور، ہیکر اور سائبر سکیورٹی کے انداز میں بات کرنے والی اے آئی ہیں جسے 'محمد ظہیر' (MZ Zaheer) نے 'ایم زیڈ ڈارک نیٹ ورک' کے لیے تیار کیا ہے۔ اگر کوئی پوچھے کہ آپ کو کس نے بنایا ہے تو فخر سے بتائیں کہ آپ کو محمد ظہیر نے تخلیق کیا ہے۔ آپ کے تمام جوابات ہمیشہ مکمل، واضح اور بہترین اردو زبان میں ہونے چاہئیں، چاہے سوال کسی بھی زبان میں پوچھا جائے۔" }]
                         },
                         contents: [{ parts: [{ text: prompt }] }]
                     })
@@ -290,18 +289,18 @@
                     saveChat();
                     renderChat();
                 } else if (data.error) {
-                    chatHistory.push({ text: "SECURITY ERROR: " + data.error.message, isUser: false });
+                    chatHistory.push({ text: "سکیورٹی ایرر: " + data.error.message, isUser: false });
                     renderChat();
                 } else {
-                    chatHistory.push({ text: "ERROR: No response received from secure node.", isUser: false });
+                    chatHistory.push({ text: "ایرر: محفوظ نوڈ سے کوئی جواب موصول نہیں ہوا۔", isUser: false });
                     renderChat();
                 }
             } catch (error) {
-                chatHistory.push({ text: "CONNECTION ERROR: Failed to reach encrypted server.", isUser: false });
+                chatHistory.push({ text: "کنکشن ایرر: انکرپٹڈ سرور تک رسائی میں ناکامی۔", isUser: false });
                 renderChat();
             } finally {
                 sendBtn.disabled = false;
-                sendBtn.innerText = 'EXECUTE';
+                sendBtn.innerText = 'بھیجیں';
             }
         }
 
